@@ -2,7 +2,7 @@ package ipv4_test
 
 import (
 	"errors"
-	"go-cidr-toolkit/pkg/v1/ipv4"
+	"go-ip-toolkit/pkg/v1/ipv4"
 	"reflect"
 	"testing"
 )

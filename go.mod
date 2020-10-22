@@ -1,3 +1,3 @@
-module go-cidr-toolkit
+module go-ip-toolkit
 
 go 1.15
