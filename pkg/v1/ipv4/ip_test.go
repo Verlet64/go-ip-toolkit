@@ -18,7 +18,7 @@ func TestNewIPFromString(t *testing.T) {
 func TestNewIPFromString_InvalidIPV4AddressFormat(t *testing.T) {
 	input := "192.168,0.1"
 	_, err := ipv4.NewIPFromString(input)
-	expected := errors.New("Invalid IPv4 address provided to constructor")
+	expected := errors.New("invalid IPv4 address provided to constructor")
 	if !reflect.DeepEqual(expected, err) {
 		t.Fatalf("Expected error to be %v, received %v", expected, err)
 	}

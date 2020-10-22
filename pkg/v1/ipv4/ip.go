@@ -7,10 +7,11 @@ import (
 )
 
 type IP struct {
+	raw [4]byte
 }
 
 var (
-	ipFormatError       = errors.New("Invalid IPv4 address provided to constructor")
+	ipFormatError       = errors.New("invalid IPv4 address provided to constructor")
 	ipSegmentUint8Error = errors.New("IPv4 segments must be unsigned 8-bit integer values (i.e between 0 and 255 inclusive)")
 )
 
@@ -35,8 +36,10 @@ func NewIPFromString(addr string) (*IP, error) {
 			return nil, ipSegmentUint8Error
 		}
 
-		copy(buffer[:i], []uint8{uint8(val)})
+		copy(buffer[i:i+1], []uint8{uint8(val)})
 	}
 
-	return &IP{}, nil
+	return &IP{
+		raw: buffer,
+	}, nil
 }
