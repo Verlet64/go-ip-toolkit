@@ -32,3 +32,14 @@ func TestNewIPFromString_OutOfBoundsValue(t *testing.T) {
 		t.Fatalf("Expected error to be %v, received %v", expected, err)
 	}
 }
+
+func TestString(t *testing.T) {
+	input := "192.168.0.1"
+	ip, _ := ipv4.NewIPFromString(input)
+	expected := input
+	got := ip.String()
+
+	if expected != got {
+		t.Fatalf("Expected IP address to be %v, found %v", expected, got)
+	}
+}

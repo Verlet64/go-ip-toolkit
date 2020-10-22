@@ -43,3 +43,17 @@ func NewIPFromString(addr string) (*IP, error) {
 		raw: buffer,
 	}, nil
 }
+
+func (i *IP) String() string {
+	ip := ""
+
+	for _, segment := range i.raw {
+		if ip != "" {
+			ip += "."
+		}
+
+		ip += strconv.Itoa(int(segment))
+	}
+
+	return ip
+}
