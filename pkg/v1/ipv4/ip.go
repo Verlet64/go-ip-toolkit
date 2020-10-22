@@ -45,15 +45,11 @@ func NewIPFromString(addr string) (*IP, error) {
 }
 
 func (i *IP) String() string {
-	ip := ""
+	var octets []string
 
-	for _, segment := range i.raw {
-		if ip != "" {
-			ip += "."
-		}
-
-		ip += strconv.Itoa(int(segment))
+	for _, octet := range i.raw {
+		octets = append(octets, strconv.Itoa(int(octet)))
 	}
 
-	return ip
+	return strings.Join(octets, ".")
 }
